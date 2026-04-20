@@ -19,10 +19,10 @@ function Hero() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="inline-flex items-center gap-2 mb-6 bg-white/[0.03] border border-white/[0.08] px-4 py-1.5 rounded-full">
                 <div className="flex items-center justify-center size-4 rounded-full bg-emerald-500/20 border border-emerald-500/50">
-                   <span className="text-[10px] font-bold text-emerald-400">₹</span>
+                   <span className="text-[10px] font-bold text-emerald-400">⚡</span>
                 </div>
                 <span className="text-[10px] font-[500] text-emerald-500/80 tracking-[0.2em] uppercase">
-                  Global Liquidity Protocol · Mainnet Beta
+                  Protocol Sandbox — Mainnet-Beta Simulation Environment
                 </span>
               </div>
 
@@ -47,25 +47,29 @@ function Hero() {
               </Link>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center md:justify-start gap-10 mt-12 pt-10 border-t border-white/[0.05] w-full max-w-sm md:max-w-none">
-              <div className="w-full md:w-auto text-center md:text-left">
-                <div className="font-syne font-[300] text-[28px] text-white leading-none flex items-baseline">
+            <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center md:justify-start gap-8 md:gap-10 mt-12 pt-10 border-t border-white/[0.05] w-full mx-auto md:mx-0">
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="font-syne font-[300] text-[32px] md:text-[28px] text-white leading-none flex items-baseline">
                   <NumberTicker value={1.8} decimalPlaces={1} className="text-white font-mono" />
                   <span className="font-mono ml-1">s</span>
                 </div>
                 <div className="text-[10px] text-white/20 tracking-widest mt-2 uppercase font-[500]">Settlement</div>
               </div>
               <div className="hidden md:block w-px bg-white/[0.08]" />
-              <div className="w-full md:w-auto text-center md:text-left">
-                <div className="font-syne font-[300] text-[28px] text-white leading-none flex items-baseline">
+              <div className="w-full h-px md:hidden bg-white/[0.04] max-w-[100px]" />
+              
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="font-syne font-[300] text-[32px] md:text-[28px] text-white leading-none flex items-baseline">
                   <NumberTicker value={0.3} decimalPlaces={1} className="text-white font-mono" />
                   <span className="font-mono ml-1">%</span>
                 </div>
                 <div className="text-[10px] text-white/20 tracking-widest mt-2 uppercase font-[500]">Fixed Fee</div>
               </div>
               <div className="hidden md:block w-px bg-white/[0.08]" />
-              <div className="w-full md:w-auto text-center md:text-left">
-                <div className="font-syne font-[300] text-[28px] text-white leading-none flex items-baseline">
+              <div className="w-full h-px md:hidden bg-white/[0.04] max-w-[100px]" />
+
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="font-syne font-[300] text-[32px] md:text-[28px] text-white leading-none flex items-baseline">
                   <span className="font-mono mr-1">$</span>
                   <NumberTicker value={125} className="text-white font-mono" />
                   <span className="font-mono ml-1">B</span>

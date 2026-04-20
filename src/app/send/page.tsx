@@ -7,6 +7,8 @@ import { ReviewStep } from "@/components/send/review-step";
 import { SuccessStep } from "@/components/send/success-step";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function SendPage() {
   const { connected } = useWallet();
@@ -33,6 +35,18 @@ export default function SendPage() {
   return (
     <div className="flex-1 w-full relative py-8 md:py-20 pt-28 min-h-screen">
       <div className="max-w-7xl mx-auto px-6 relative">
+        
+        {/* Navigation Home */}
+        <div className="max-w-lg mx-auto mb-10 flex items-center justify-between">
+          <Link href="/" className="inline-flex items-center gap-2 text-white/30 hover:text-white transition-colors text-[13px] font-[300]">
+            <ArrowLeft className="w-4 h-4" /> Back to Dashboard
+          </Link>
+          <div className="flex items-center gap-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
+            <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[9px] uppercase tracking-[0.1em] text-white/40 font-[500]">Sandbox Mode</span>
+          </div>
+        </div>
+
         {/* Step Indicator */}
         {step < 4 && (
           <div className="max-w-sm mx-auto mb-12">

@@ -17,18 +17,36 @@ export function SuccessStep({ txId }: SuccessStepProps) {
       transition={{ duration: 0.5, type: "spring" }}
     >
       <div className="w-full max-w-lg mx-auto bg-white/[0.02] border border-white/[0.06] rounded-[32px] p-8 md:p-12 text-center">
-        <div className="pt-4 pb-2">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-white/[0.05] border border-white/10"
-          >
-            <Check className="h-10 w-10 text-white/80" />
-          </motion.div>
-          <h2 className="font-syne font-[300] text-[36px] text-white tracking-tight">Settlement Sent</h2>
-          <p className="text-white/30 text-[14px] font-[300] mt-4 leading-relaxed max-w-[280px] mx-auto italic">
-            Transaction broadcasted to Solana. Relayer is now processing the UPI off-ramp.
+        <div className="pt-4 pb-2 relative flex flex-col items-center">
+          <div className="relative mb-8">
+            <motion.div
+              initial={{ scale: 0, rotate: -45 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 260, damping: 20 }}
+              className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)]"
+            >
+              <Check className="h-12 w-12 text-emerald-400 stroke-[3]" />
+            </motion.div>
+            
+            {/* Animated Ring */}
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1.5, opacity: 0 }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+              className="absolute inset-0 border-2 border-emerald-500/20 rounded-full"
+            />
+          </div>
+
+          <div className="inline-flex items-center gap-2 mb-4 bg-emerald-500/5 border border-emerald-500/20 px-3 py-1 rounded-full">
+            <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] uppercase tracking-widest text-emerald-500/80 font-[600]">Verified Settlement</span>
+          </div>
+
+          <h2 className="font-syne font-[300] text-[36px] text-white tracking-tight leading-tight">
+            Sent. <span className="text-white/40">Settled.</span>
+          </h2>
+          <p className="text-white/30 text-[14px] font-[300] mt-4 leading-relaxed max-w-[320px] mx-auto">
+            Blockchain broadcast complete. Your funds are being deposited into the UPI recipient account.
           </p>
         </div>
 

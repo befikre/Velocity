@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, RefreshCw, Download, Share2 } from "lucide-react";
@@ -28,7 +28,6 @@ export default function TrackPage() {
     const record = records.find(r => r.txHash === txId);
     if (record) {
       setTxRecord(record);
-        // Auto-simulate delivery for the demonstration
       if (record.status === "Processing") {
         setTimeout(() => {
           updateTransactionStatus(record.id, "Delivered");
@@ -41,7 +40,7 @@ export default function TrackPage() {
         txHash: txId,
         date: new Date().toISOString(),
         amountUsd: 50.00,
-        amountInr: 4150.00,
+        amountInr: 4175.00,
         recipientUpi: "velocity@upi",
         status: "Delivered",
         purpose: "freelance"
@@ -57,14 +56,50 @@ export default function TrackPage() {
     }, 800);
   };
 
+  const handleDownloadPDF = () => {
+    window.print();
+  };
+
   if (!mounted || !txRecord) return null;
 
   const isDelivered = txRecord.status === "Delivered";
 
   return (
     <div className="flex-1 w-full py-8 md:py-20 pt-28 min-h-screen">
+      <style jsx global>{`
+        @media print {
+          body * {
+            visibility: hidden;
+          }
+          #receipt, #receipt * {
+            visibility: visible;
+          }
+          #receipt {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100% !important;
+            height: auto !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: white !important;
+            padding: 40px !important;
+            margin: 0 !important;
+          }
+          #receipt * {
+            color: black !important;
+          }
+          #receipt .text-white\/30, #receipt .text-white\/20, #receipt .text-white\/40, #receipt .text-white\/10 {
+            color: #666 !important;
+          }
+          #receipt .border-white\/\[0\.05\], #receipt .border-white\/10 {
+            border-color: #eee !important;
+          }
+        }
+      `}</style>
+
       <div className="max-w-3xl mx-auto px-6 relative">
-        <Link href="/dashboard" className="inline-flex items-center text-[12px] uppercase tracking-widest font-[400] text-white/30 hover:text-white mb-10 transition-colors">
+        <Link href="/dashboard" className="inline-flex items-center text-[12px] uppercase tracking-widest font-[400] text-white/30 hover:text-white mb-10 transition-colors print:hidden">
           <ArrowLeft className="mr-2 h-3.5 w-3.5" /> Dashboard
         </Link>
 
@@ -100,7 +135,7 @@ export default function TrackPage() {
                  </div>
                  <div className="flex justify-between">
                    <span className="text-white/20">Protocol</span>
-                   <span className="text-white/40 flex items-center gap-2">Solana Devnet <div className="w-1 h-1 rounded-full bg-white/20" /></span>
+                   <span className="text-white/40 flex items-center gap-2">Solana Mainnet-Beta <div className="w-1 h-1 rounded-full bg-white/20" /></span>
                  </div>
                  <div className="flex justify-between items-center pt-2">
                    <span className="text-white/20">Status</span>
@@ -115,18 +150,21 @@ export default function TrackPage() {
                </div>
             </div>
 
-            <div className="flex flex-col items-center gap-6 mt-12">
+            <div className="flex flex-col items-center gap-6 mt-12 print:hidden">
                <button className="text-[13px] font-[500] text-white/40 hover:text-white transition-colors underline underline-offset-8 decoration-white/10" onClick={() => setShowReceipt(false)}>
                  Back to Tracking
                </button>
-               <button className="bg-white text-black px-10 py-4 rounded-2xl font-[600] text-[14px] hover:bg-neutral-200 transition-colors flex items-center gap-3">
+               <button 
+                onClick={handleDownloadPDF}
+                className="bg-white text-black px-10 py-4 rounded-2xl font-[600] text-[14px] hover:bg-neutral-200 transition-colors flex items-center gap-3 active:scale-95"
+              >
                  <Download className="w-4 h-4" /> Download PDF
                </button>
             </div>
           </motion.div>
         ) : (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
+            <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6 print:hidden">
               <div>
                 <h1 className="font-syne font-[300] text-[32px] md:text-[42px] tracking-tight text-white mb-2">Settlement sync</h1>
                 <p className="text-white/30 flex items-center gap-2 text-[14px] font-[300]">
@@ -143,12 +181,11 @@ export default function TrackPage() {
               </button>
             </div>
 
-            <div className="bg-white/[0.015] border border-white/[0.05] rounded-[32px] p-8 md:p-12 mb-8">
+            <div className="bg-white/[0.015] border border-white/[0.05] rounded-[32px] p-8 md:p-12 mb-8 print:hidden">
                <StatusTimeline status={txRecord.status} />
             </div>
 
-            {/* Readout Boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:hidden">
                <div className="bg-white/[0.015] border border-white/[0.05] rounded-[24px] p-6 group hover:border-white/20 transition-colors">
                  <p className="text-[10px] text-white/20 font-[400] uppercase tracking-widest mb-4">On-chain Proof</p>
                  <div className="flex items-center justify-between">
@@ -164,7 +201,7 @@ export default function TrackPage() {
                <div className="bg-white/[0.015] border border-white/[0.05] rounded-[24px] p-6 group hover:border-white/20 transition-colors">
                  <p className="text-[10px] text-white/20 font-[400] uppercase tracking-widest mb-4">Settlement Value</p>
                  <div className="flex flex-col">
-                    <p className="font-syne font-[300] text-white text-[24px]">₹{txRecord.amountInr.toLocaleString('en-IN')}</p>
+                    <p className="font-mono font-[400] text-white text-[24px]">₹{txRecord.amountInr.toLocaleString('en-IN')}</p>
                     <p className="text-[11px] text-white/30 mt-1 truncate italic">Dispatched to {txRecord.recipientUpi}</p>
                  </div>
                </div>
@@ -174,7 +211,7 @@ export default function TrackPage() {
                {isDelivered && (
                  <motion.div 
                    initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                   className="mt-12 flex justify-center"
+                   className="mt-12 flex justify-center print:hidden"
                  >
                    <button 
                      onClick={() => setShowReceipt(true)}
@@ -189,6 +226,5 @@ export default function TrackPage() {
         )}
       </div>
     </div>
-
   );
 }

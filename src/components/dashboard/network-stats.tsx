@@ -53,7 +53,7 @@ export function NetworkStats() {
         <div className="grid grid-cols-3 gap-3 text-center">
           <div className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
             <Zap className="h-3.5 w-3.5 text-amber-400 mx-auto mb-2" />
-            <span className="text-xl font-black text-white block">
+            <span className="text-xl font-semibold text-white block tabular-nums tracking-tight">
               {stats.tps.toLocaleString()}
             </span>
             <span className="text-[10px] text-white/20 uppercase tracking-wider mt-1 block">TPS</span>
@@ -61,7 +61,7 @@ export function NetworkStats() {
 
           <div className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
             <Activity className="h-3.5 w-3.5 text-teal-400 mx-auto mb-2" />
-            <span className="text-xl font-black text-white block">
+            <span className="text-xl font-semibold text-white block tabular-nums tracking-tight">
               {stats.epoch.toLocaleString()}
             </span>
             <span className="text-[10px] text-white/20 uppercase tracking-wider mt-1 block">Epoch</span>
@@ -69,7 +69,7 @@ export function NetworkStats() {
 
           <div className="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]">
             <Server className="h-3.5 w-3.5 text-emerald-400 mx-auto mb-2" />
-            <span className="text-xl font-black text-white block">
+            <span className="text-xl font-semibold text-white block tabular-nums tracking-tight">
               {(stats.slot / 1000000).toFixed(1)}M
             </span>
             <span className="text-[10px] text-white/20 uppercase tracking-wider mt-1 block">Slot</span>

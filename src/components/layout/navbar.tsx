@@ -10,11 +10,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Thin top banner */}
-      <div className="w-full border-b border-white/[0.06] text-white/30 text-[10px] py-1.5 text-center tracking-[0.25em] uppercase font-[400]">
-        Protocol Sandbox — Mainnet-Beta Simulation Environment
-      </div>
-
       <nav className="relative z-50 w-full border-b border-white/[0.05] bg-[#050505]/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 h-[64px] flex items-center justify-between">
 

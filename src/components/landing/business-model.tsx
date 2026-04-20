@@ -23,7 +23,7 @@ export function BusinessModel() {
             { value: "32M", label: "NRIs who already own crypto and need this" },
           ].map((item, i) => (
             <div key={i}>
-              <div className="font-syne font-[300] text-[40px] text-white tracking-tight leading-none mb-2">
+              <div className="font-mono font-[400] text-[40px] text-white tracking-tight leading-none mb-2 tabular-nums">
                 {item.value}
               </div>
               <div className="text-[13px] font-[300] text-white/35 leading-relaxed">

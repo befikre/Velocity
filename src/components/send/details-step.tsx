@@ -182,27 +182,33 @@ export function DetailsStep({ onNext, onBack }: DetailsStepProps) {
             </div>
           )}
 
-          {/* Amount Input */}
-          <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-7 relative overflow-hidden group">
-            <div className="flex justify-between items-center mb-3">
-               <Label className="text-[11px] font-[400] text-white/30 tracking-wider uppercase">Send Amount</Label>
-               <button
-                  onClick={() => setIsFromUsd(!isFromUsd)}
-                  className="bg-white/[0.04] text-white/60 p-2 rounded-full border border-white/[0.06] hover:bg-white/10 hover:text-white transition-colors"
-                >
-                  <ArrowDownUp className="h-3.5 w-3.5" />
-                </button>
+          <div className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 md:p-8 relative overflow-hidden group focus-within:border-white/30 transition-all">
+            <div className="flex justify-between items-center mb-6">
+               <Label className="text-[10px] font-[500] text-white/30 tracking-[0.2em] uppercase">Set Amount</Label>
+               <div className="flex items-center gap-2 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.06]">
+                 <span className="text-[10px] text-white/60 font-mono">USDC / INR</span>
+               </div>
             </div>
                
-            <div className="flex items-center text-[42px] font-mono font-[400] text-white leading-none">
-              <span className="text-white/20 mr-3">{isFromUsd ? "$" : "₹"}</span>
+            <div className="flex items-center text-[48px] md:text-[56px] font-mono font-[400] text-white leading-none tracking-tighter">
+              <span className="text-white/20 mr-4 select-none">$</span>
               <Input
                 type="number"
                 value={amountStr}
                 onChange={(e) => setAmountStr(e.target.value)}
-                className="bg-transparent border-none p-0 h-auto focus-visible:ring-0 w-full shadow-none text-[42px] font-mono tabular-nums tracking-tight placeholder:text-white/10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                className="bg-transparent border-none p-0 h-auto focus-visible:ring-0 w-full shadow-none text-[48px] md:text-[56px] font-mono tabular-nums tracking-tighter placeholder:text-white/5 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:outline-none"
                 placeholder="0.00"
               />
+            </div>
+            
+            <div className="mt-8 pt-6 border-t border-white/[0.04] flex items-center justify-between">
+               <div className="text-[11px] text-white/20 flex items-center gap-2">
+                 <div className="size-1 rounded-full bg-emerald-500/50" />
+                 Rate: 1 USDC = ₹83.50
+               </div>
+               <div className="font-mono text-[13px] text-white/50 tabular-nums">
+                 ≈ ₹{amountInr.toLocaleString('en-IN')}
+               </div>
             </div>
           </div>
 
