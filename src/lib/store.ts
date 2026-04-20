@@ -46,8 +46,8 @@ export function updateTransactionStatus(id: string, status: TransactionStatus) {
 // Generate some mock history so the dashboard isn't empty
 function getMockTransactions(): Transaction[] {
   return [
-    { id: 'tx_1', purpose: 'gift', amountUsd: 50.06, amountInr: 4180, recipientUpi: 'mom@oksbi', status: 'Delivered', date: '2026-04-15', message: 'Happy Diwali!', txHash: '5XNfA8w9...' },
-    { id: 'tx_2', purpose: 'freelance', amountUsd: 197.6, amountInr: 16500, recipientUpi: 'me@ybl', status: 'Delivered', date: '2026-04-12', txHash: '2jKbC1v8...' },
-    { id: 'tx_3', purpose: 'gift', amountUsd: 98.2, amountInr: 8200, recipientUpi: 'dad@icici', status: 'Processing', date: '2026-04-17', txHash: '9hPzL3m5...' }
+    { id: 'tx_1', purpose: 'gift', amountUsd: 50.06, amountInr: 4180, recipientUpi: 'demo3@oksbi', status: 'Delivered', date: '2026-04-15', message: 'Happy Diwali!', txHash: '5XNfA8w9...' },
+    { id: 'tx_2', purpose: 'freelance', amountUsd: 197.6, amountInr: 16500, recipientUpi: 'demo2@ybl', status: 'Delivered', date: '2026-04-12', txHash: '2jKbC1v8...' },
+    { id: 'tx_3', purpose: 'gift', amountUsd: 98.2, amountInr: 8200, recipientUpi: 'demo1@icici', status: 'Processing', date: '2026-04-17', txHash: '9hPzL3m5...' }
   ];
 }

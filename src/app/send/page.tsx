@@ -39,7 +39,7 @@ export default function SendPage() {
         {/* Navigation Home */}
         <div className="max-w-lg mx-auto mb-10 flex items-center justify-between">
           <Link href="/" className="inline-flex items-center gap-2 text-white/30 hover:text-white transition-colors text-[13px] font-[300]">
-            <ArrowLeft className="w-4 h-4" /> Back to Dashboard
+            <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="flex items-center gap-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
             <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />

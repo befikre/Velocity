@@ -64,7 +64,7 @@ export function StatsCards({ transactions }: StatsCardsProps) {
               <card.icon className={`h-4 w-4 ${card.iconColor}`} />
             </div>
           </div>
-          <div className="text-[32px] font-semibold text-white tracking-tight tabular-nums">{card.value}</div>
+          <div className="text-[32px] font-sans font-medium text-white">{card.value}</div>
           {card.change && (
             <p className="text-xs text-emerald-400 mt-2 flex items-center gap-1 font-[400]">
               <ArrowUpRight className="h-3 w-3" /> {card.change} from last month
