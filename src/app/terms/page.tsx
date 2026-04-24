@@ -17,16 +17,20 @@ export default function Terms() {
       <div className="space-y-12">
         {[
           {
-            title: "Simulated Environment",
-            body: "Velocity is a beta-phase protocol for digital remittance simulation. Use of this application for real-world financial remittance is strictly prohibited in the current iteration. All transactions run on Solana Devnet and carry no real monetary value.",
+            title: "Sandbox Protocol Environment",
+            body: "Velocity is currently operating in a Mainnet-Beta Sandbox Environment for architectural validation and developer demonstration. Use of this protocol for live commercial remittance is strictly prohibited during the beta phase. All transactions are for simulation purposes only.",
           },
           {
-            title: "No financial advice",
-            body: "Nothing in this application constitutes financial or legal advice. All data provided is for simulation purposes only. The developers assume no responsibility for any misuse of the platform.",
+            title: "Risk Acknowledgement",
+            body: "Users acknowledge that decentralized protocols involve inherent risks. Velocity provides no guarantees regarding network uptime, liquidity node availability, or third-party bank rail stability during the simulation phase.",
           },
           {
-            title: "Intellectual property",
-            body: "The Velocity name, logo, and codebase are the property of the protocol developers. Solana, Dodo Payments, and UPI are trademarks of their respective owners. This project has no affiliation with NPCI, any Indian bank, or any financial institution.",
+            title: "Intellectual Property & Attribution",
+            body: "The Velocity Protocol architecture, codebase, and branding are the intellectual property of the project developers. Solana and UPI are trademarks of their respective owners. This project is an independent demonstration and is not officially affiliated with NPCI or any Indian financial institution.",
+          },
+          {
+            title: "Governing Law",
+            body: "This protocol is governed by the standards of the decentralized web. All settlement data is managed by the underlying Solana blockchain ledger and is subject to the consensus rules of the Solana network.",
           },
         ].map((section, i) => (
           <div key={i} className="pb-10 border-b border-white/[0.05] last:border-0">

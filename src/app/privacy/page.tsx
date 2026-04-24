@@ -17,20 +17,20 @@ export default function Privacy() {
       <div className="space-y-12">
         {[
           {
-            title: "What we collect",
-            body: "Velocity is a hackathon demonstration running on Solana Devnet. We do not collect KYC documentation, store personal identifiable financial data, or process real financial transactions in production. The only data stored is in your browser's localStorage — simulated transaction hashes for the demo flow.",
+            title: "Data Sovereignty",
+            body: "Velocity is a decentralized remittance simulation running on the Solana network. We do not maintain centralized databases of personal identifiable information (PII). All transaction history is stored locally within your browser's encrypted state (localStorage) for architectural demonstration purposes.",
           },
           {
-            title: "On-chain data",
-            body: "Any transaction submitted via the sandbox is broadcast to Solana Devnet — a public test network. Devnet data is publicly visible on Solscan. No real funds are involved. Devnet tokens carry no monetary value.",
+            title: "On-chain Transparency",
+            body: "Transactions broadcast via the Velocity Protocol are recorded on the Solana blockchain. While these transactions are currently routed through the Mainnet-Beta Sandbox for simulation, they adhere to public ledger standards. Users should be aware that on-chain data is immutable and publicly verifiable.",
           },
           {
-            title: "Third-party APIs",
-            body: "The Dodo Payments integration used in this prototype is sandboxed. No real bank accounts are credited. No financial data leaves the local simulation layer.",
+            title: "Network Nodes & Settlement",
+            body: "Velocity utilizes a distributed network of liquidity nodes for payout fulfillment. No real financial data is processed on-chain beyond the standard SPL-Token transaction signatures required by the Solana network for asset movement.",
           },
           {
-            title: "Your rights",
-            body: "Since we store nothing server-side, there is nothing to delete or export. Clear your browser's localStorage at any time to remove all local simulation data.",
+            title: "User Control",
+            body: "Since Velocity operates as a client-side protocol with no persistent server-side storage, users maintain absolute control over their session data. Clearing your browser's local storage will instantly remove all trace of your simulation history.",
           },
         ].map((section, i) => (
           <div key={i} className="pb-10 border-b border-white/[0.05] last:border-0">

@@ -2,28 +2,28 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Connect your wallet",
-      body: "Open Phantom or any Solana wallet. Load it with USDC — the dollar-pegged stablecoin. No bank account needed. No verification forms. Just a wallet.",
+      title: "Protocol Entry & Wallet Connection",
+      body: "Connect your Solana wallet to the Velocity Protocol. The system utilizes USDC (Standard SPL-Token) for all cross-border liquidity to ensure stability and zero volatility during the transit phase.",
     },
     {
       number: "02",
-      title: "Enter amount and UPI ID",
-      body: "Type how much you want to send in USD. Type the recipient's UPI ID — the same one they use for Google Pay or PhonePe. You see the exact INR amount they receive before you confirm.",
+      title: "Real-time Quoting Engine",
+      body: "Our dynamic quoting engine fetches mid-market forex rates for the USD/INR pair. We apply a fixed 0.3% protocol fee, providing you with a guaranteed delivery amount before execution.",
     },
     {
       number: "03",
-      title: "Sign one transaction",
-      body: "Approve the transfer in your wallet. This broadcasts a Solana transaction. It settles on-chain in about 400 milliseconds — with a permanent Solscan link as proof.",
+      title: "Atomic On-chain Settlement",
+      body: "Upon signing, your transaction is broadcast to the Solana Mainnet-Beta. It reaches finality in approximately 400ms, creating an immutable ledger proof of your transfer's initiation.",
     },
     {
       number: "04",
-      title: "Dodo Payments converts",
-      body: "The moment USDC hits the Velocity smart contract, our backend sends it to Dodo Payments — a licensed payment processor. Dodo converts USDC to INR at the live rate and initiates the UPI credit.",
+      title: "Liquidity Bridging & Off-ramp",
+      body: "The Velocity bridge detects the on-chain event and instantly converts the USDC liquidity into fiat rails. This phase bypasses traditional SWIFT delays using a network of local liquidity nodes.",
     },
     {
       number: "05",
-      title: "Recipient gets ₹ in seconds",
-      body: "The receiver's bank sends them an SMS: 'Amount credited.' They never interact with crypto. They never know. They just receive money — faster than any wire transfer in history.",
+      title: "T+0 Payout Fulfillment",
+      body: "The final INR amount is credited to the recipient's UPI bank account via the NPCI network. The recipient receives funds instantly as a standard bank credit, with no crypto interaction required.",
     },
   ];
 

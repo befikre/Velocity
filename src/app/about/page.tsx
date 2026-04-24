@@ -27,10 +27,10 @@ export default function About() {
 
         <div className="flex flex-col gap-6">
           {[
-            { label: "Built with", value: "Solana · Next.js · Dodo Payments" },
-            { label: "Infrastructure", value: "Velocity Protocol · Solana Core" },
-            { label: "Status", value: "Developer Sandbox (Devnet)" },
-            { label: "Network fee", value: "0.3% flat per transfer" },
+            { label: "Built with", value: "Solana · Next.js · NPCI Rails" },
+            { label: "Architecture", value: "Velocity Liquidity Bridge" },
+            { label: "Status", value: "Mainnet-Beta Sandbox Environment" },
+            { label: "Network fee", value: "0.3% Optimized Settlement" },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-1 pb-4 border-b border-white/[0.05] last:border-0">
               <div className="text-[11px] text-white/25 uppercase tracking-widest font-[400]">{item.label}</div>
