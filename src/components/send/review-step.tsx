@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, AlertCircle, Wallet, Loader2, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowLeft, AlertCircle, Wallet, Loader2, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 import { useSolanaTransfer } from "@/hooks/use-solana-transfer";
 import { useWallet } from "@solana/wallet-adapter-react";
+import { saveTransaction } from "@/lib/store";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
@@ -47,6 +48,19 @@ export function ReviewStep({ data, onNext, onBack }: ReviewStepProps) {
           }),
         });
         
+        // Save to local store for dashboard persistence
+        saveTransaction({
+          id: signature,
+          txHash: signature,
+          date: new Date().toISOString(),
+          amountUsd: data.amountUsd,
+          amountInr: data.amountInr,
+          recipientUpi: data.recipientUpi,
+          status: "Processing",
+          purpose: (data.purpose as any) || "freelance",
+          message: data.message
+        });
+
         setTimeout(() => {
           onNext(signature);
         }, 1200);
@@ -76,6 +90,19 @@ export function ReviewStep({ data, onNext, onBack }: ReviewStepProps) {
           upiId: data.recipientUpi, // Fix: Use upiId to match the API route
           purpose: data.purpose || "Demo Transfer"
         }),
+      });
+
+      // Save simulated transaction to local store
+      saveTransaction({
+        id: fakeSignature,
+        txHash: fakeSignature,
+        date: new Date().toISOString(),
+        amountUsd: data.amountUsd,
+        amountInr: data.amountInr,
+        recipientUpi: data.recipientUpi,
+        status: "Processing",
+        purpose: (data.purpose as any) || "gift",
+        message: data.message
       });
 
       // Even if the API fails locally, we allow the demo to proceed for the video
@@ -158,13 +185,22 @@ export function ReviewStep({ data, onNext, onBack }: ReviewStepProps) {
                   <WalletMultiButton />
                 </div>
                 <div className="mt-8 pt-6 border-t border-white/[0.05]">
-                  <button 
-                    onClick={handleSimulate}
-                    disabled={isSimulating}
-                    className="text-[11px] uppercase tracking-[0.2em] text-white/20 hover:text-emerald-500/80 transition-colors"
-                  >
-                    {isSimulating ? "Simulating Settlement..." : "Skip to Sandbox Execution"}
-                  </button>
+                  <div className="flex flex-col items-center gap-3">
+                    <p className="text-[10px] text-white/10 uppercase tracking-[0.2em] font-[500]">Simulation Environment</p>
+                    <button 
+                      onClick={handleSimulate}
+                      disabled={isSimulating}
+                      className="group flex items-center gap-2 px-6 py-2 rounded-full border border-emerald-500/10 bg-emerald-500/[0.02] text-emerald-500/40 hover:text-emerald-400 hover:border-emerald-500/30 hover:bg-emerald-500/[0.05] transition-all active:scale-95"
+                    >
+                      <span className="text-[11px] uppercase tracking-[0.15em] font-[600]">
+                        {isSimulating ? "Processing Simulation..." : "Launch Sandbox Execution"}
+                      </span>
+                      {!isSimulating && <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />}
+                    </button>
+                    <p className="text-[9px] text-white/10 max-w-[200px] leading-relaxed">
+                      Mainnet-Beta bypass for demonstration and architectural validation.
+                    </p>
+                  </div>
                 </div>
              </div>
           )}
