@@ -29,7 +29,7 @@ export function Footer() {
         </div>
 
         <div className="flex items-center gap-2 text-[11px] text-white/20 font-[300]">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-pulse" />
           Built on Solana
         </div>
 
