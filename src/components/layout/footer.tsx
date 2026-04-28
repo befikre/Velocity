@@ -28,7 +28,8 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="text-[11px] text-white/20 font-[300]">
+        <div className="flex items-center gap-2 text-[11px] text-white/20 font-[300]">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
           Built on Solana
         </div>
 
