@@ -28,7 +28,7 @@ export function Navbar() {
               Use cases
             </Link>
             <Link href="/about" className="text-[13px] text-white/40 hover:text-white/80 transition-colors">
-              About
+              Protocol
             </Link>
           </div>
 
@@ -50,7 +50,7 @@ export function Navbar() {
           <div className="md:hidden absolute top-full left-0 right-0 bg-[#050505] border-b border-white/[0.06] px-6 py-6 flex flex-col gap-5">
             <Link href="/how-it-works" onClick={() => setOpen(false)} className="text-[14px] text-white/60 hover:text-white transition-colors">How it works</Link>
             <Link href="/#use-cases" onClick={() => setOpen(false)} className="text-[14px] text-white/60 hover:text-white transition-colors">Use cases</Link>
-            <Link href="/about" onClick={() => setOpen(false)} className="text-[14px] text-white/60 hover:text-white transition-colors">About</Link>
+            <Link href="/about" onClick={() => setOpen(false)} className="text-[14px] text-white/60 hover:text-white transition-colors">Protocol</Link>
             <Link href="/send" onClick={() => setOpen(false)} className="w-full text-center bg-white text-black text-[13px] font-[500] px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors">
               Send money
             </Link>

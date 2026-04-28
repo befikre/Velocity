@@ -15,7 +15,7 @@ export function Footer() {
 
         <div className="flex items-center gap-6">
           <Link href="/about" className="text-[12px] text-white/30 hover:text-white/60 transition-colors font-[300]">
-            About
+            Protocol
           </Link>
           <Link href="/how-it-works" className="text-[12px] text-white/30 hover:text-white/60 transition-colors font-[300]">
             How it works
